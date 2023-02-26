@@ -1,4 +1,6 @@
+using FirstMVCApp.Controllers;
 using FirstMVCApp.DataContext;
+using FirstMVCApp.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,7 +15,9 @@ namespace FirstMVCApp
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<ProgrammingClubDataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+            
             var app = builder.Build();
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
