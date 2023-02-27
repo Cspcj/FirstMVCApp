@@ -1,4 +1,5 @@
 ﻿using FirstMVCApp.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FirstMVCApp.Controllers
 {
@@ -10,5 +11,6 @@ namespace FirstMVCApp.Controllers
         {
             _membershipTypeRepository = repository;
         }
+
     }
 }

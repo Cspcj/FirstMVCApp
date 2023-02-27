@@ -1,5 +1,8 @@
-﻿using FirstMVCApp.DataContext;
+﻿
+using FirstMVCApp.DataContext;
 using FirstMVCApp.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.Repositories
@@ -12,13 +15,35 @@ namespace FirstMVCApp.Repositories
 
         public AnnouncementsRepository(ProgrammingClubDataContext context)
         {
-            _context= context;
+            _context = context;
         }
+
 
         // metoda echivalenta Get
         public DbSet<AnnouncementModel> GetAnnouncements ()
         {
             return _context.Announcements;
+        }
+
+        public void Add(AnnouncementModel model)
+        {
+            model.IdAnnouncement = Guid.NewGuid();  //setam id-ul
+            _context.Announcements.Add(model);      // adaugam modelul in layerul ORM
+            _context.SaveChanges();                 // commit to database
+        }
+
+        
+        public AnnouncementModel GetAnnouncementById(Guid id) 
+        { 
+            AnnouncementModel model = _context.Announcements.FirstOrDefault(a => a.IdAnnouncement == id);
+            return model;
+        }
+
+
+        public void Update(AnnouncementModel model)
+        {
+            _context.Announcements.Update(model);
+            _context.SaveChanges();
         }
     }
 }

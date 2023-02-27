@@ -1,4 +1,6 @@
 ﻿using FirstMVCApp.DataContext;
+using FirstMVCApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.Repositories
 {
@@ -11,6 +13,9 @@ namespace FirstMVCApp.Repositories
             _context = context;
         }
 
-
+        //public DbSet<AnnouncementModel> GetAnnouncements()
+        //{
+        //    return _context.CodeSnippets;
+        //}
     }
 }

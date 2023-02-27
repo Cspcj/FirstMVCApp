@@ -1,4 +1,5 @@
-﻿using FirstMVCApp.Models;
+﻿
+using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +17,39 @@ namespace FirstMVCApp.Controllers
         {
             var announcements = _repository.GetAnnouncements();
             return View("Index", announcements);
+        }
+
+        public IActionResult Create() 
+        { 
+            return View("Create");
+        }
+
+        [HttpPost]
+        public IActionResult Create(IFormCollection collection)
+        {
+            AnnouncementModel model = new AnnouncementModel();          // se creaza un model nou pentru inserarea in baza de date
+            TryUpdateModelAsync(model);                                 // mapeaza datele din colectie - formular - pe modelul creat local
+            _repository.Add(model);                                     // se transmite modelul spre ORM
+
+            
+            return RedirectToAction("Index");
+        }
+
+
+        public IActionResult Edit(Guid id) 
+        { 
+            var model = _repository.GetAnnouncementById(id);
+            return View("Edit", model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(IFormCollection collection)
+        {
+            AnnouncementModel model = new();
+            TryUpdateModelAsync(model);
+            _repository.Update(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

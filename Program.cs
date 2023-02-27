@@ -16,6 +16,15 @@ namespace FirstMVCApp
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<ProgrammingClubDataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
             
+            builder.Services.AddTransient<ProgrammingClubDataContext, ProgrammingClubDataContext>();
+            builder.Services.AddTransient<AnnouncementsRepository, AnnouncementsRepository>();
+            builder.Services.AddTransient<CodeSnippetsRepository, CodeSnippetsRepository>();
+            builder.Services.AddTransient<MembershipsRepository, MembershipsRepository>();
+            builder.Services.AddTransient<MembershiptTypesRepository, MembershiptTypesRepository>();
+            builder.Services.AddTransient<MembersRepository, MembersRepository>();
+            //builder.Services.AddScoped<ProgrammingClubDataContext>();     // creaza un obiect pe durata unei sesiuni
+            //builder.Services.AddSingleton<ProgrammingClubDataContext>();  // asigura o singura instanta a unui obiect pe perioada unei cereri
+
             var app = builder.Build();
 
 
