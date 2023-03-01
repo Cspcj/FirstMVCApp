@@ -57,5 +57,12 @@ namespace FirstMVCApp.Controllers
         { 
             return View("Details", _repository.FindById(id));
         }
+
+        [HttpGet]
+        public IActionResult Delete(Guid id) 
+        { 
+            _repository.DeleteMembershipType(_repository.FindById(id));
+            return RedirectToAction("Index");
+        }        
     }
 }
