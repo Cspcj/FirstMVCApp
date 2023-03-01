@@ -60,9 +60,13 @@ namespace FirstMVCApp.Controllers
         [HttpGet]
         public IActionResult Delete(Guid id) 
         {
-           
+            return View("Delete", _repository.GetMemberById(id));
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Guid id, IFormCollection collection) 
+        {          
            _repository.DeleteMemberById(id);
-           
             return RedirectToAction("Index");
         }
     }

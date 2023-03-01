@@ -5,7 +5,7 @@ using NuGet.Protocol.Core.Types;
 
 namespace FirstMVCApp.Controllers
 {
-    public class MembershipTypesController:Controller
+    public class MembershipTypesController : Controller
     {
         private readonly MembershipTypesRepository _repository;
 
@@ -33,10 +33,10 @@ namespace FirstMVCApp.Controllers
             TryUpdateModelAsync(model);
             _repository.AddMembershiptType(model);
 
-            return RedirectToAction("Index");   
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Edit(Guid id) 
+        public IActionResult Edit(Guid id)
         {
             var membership = _repository.FindById(id);
             return View("Edit", membership);
@@ -49,17 +49,24 @@ namespace FirstMVCApp.Controllers
             TryUpdateModelAsync(updatedMembership);
 
             _repository.UpdateMembershipType(id, updatedMembership);
-            
+
             return RedirectToAction("Index");
         }
 
-        public IActionResult Details(Guid id) 
-        { 
+        public IActionResult Details(Guid id)
+        {
             return View("Details", _repository.FindById(id));
         }
 
         [HttpGet]
-        public IActionResult Delete(Guid id) 
+        public IActionResult Delete(Guid id)
+        {
+            var model = _repository.FindById(id);
+            return View("Delete", model);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Guid id, IFormCollection collection) 
         { 
             _repository.DeleteMembershipType(_repository.FindById(id));
             return RedirectToAction("Index");
