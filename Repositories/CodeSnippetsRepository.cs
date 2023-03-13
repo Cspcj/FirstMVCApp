@@ -13,9 +13,37 @@ namespace FirstMVCApp.Repositories
             _context = context;
         }
 
-        //public DbSet<AnnouncementModel> GetAnnouncements()
-        //{
-        //    return _context.CodeSnippets;
-        //}
+        public DbSet<CodeSnippetModel> GetAll()
+        {
+            return _context.CodeSnippets;
+        }
+
+        public CodeSnippetModel GetById(Guid id) 
+        {
+            return _context.CodeSnippets.FirstOrDefault(a => a.IDCodeSnippet == id);
+        }
+
+        public void Add(CodeSnippetModel codeSnippet) 
+        {
+            codeSnippet.IDCodeSnippet = Guid.NewGuid();
+            _context.CodeSnippets.Add(codeSnippet);
+            // cod alternativ
+            //_context.Entry(CodeSnippetModel).State = EntityState.Added;
+            _context.SaveChanges();
+        }
+
+        public void Update(CodeSnippetModel codeSnippet) 
+        { 
+            _context.CodeSnippets.Update(codeSnippet);
+            _context.SaveChanges();
+        }
+
+        public void DeleteById(Guid id) 
+        { 
+            _context.CodeSnippets.Remove(GetById(id));  
+            _context.SaveChanges();
+        }
+
+
     }
 }

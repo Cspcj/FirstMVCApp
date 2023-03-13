@@ -1,5 +1,6 @@
 ﻿using FirstMVCApp.DataContext;
 using FirstMVCApp.Models;
+using FirstMVCApp.VuewModels;
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstMVCApp.Repositories
@@ -41,6 +42,22 @@ namespace FirstMVCApp.Repositories
         {
             _context.MembershipTypes.Remove(membershipType);
             _context.SaveChanges();
+        }
+
+        public MembershipTypesMembersViewModel GetMembersByMembership(Guid MembershipTypeId)
+        {
+            MembershipTypesMembersViewModel membershipType = new MembershipTypesMembersViewModel();
+
+            var membership = _context.MembershipTypes.FirstOrDefault(x => x.IDMembershipType == MembershipTypeId);
+            if (membership != null)
+            {
+                membershipType.Name = membership.Name;
+                membershipType.Description = membership.Description;
+                membershipType.members = _context.Members.Where(x => x.IDMember == MembershipTypeId).ToList();
+                membershipType.Count = membershipType.members.Count;
+            }
+
+            return membershipType;
         }
     }
 }

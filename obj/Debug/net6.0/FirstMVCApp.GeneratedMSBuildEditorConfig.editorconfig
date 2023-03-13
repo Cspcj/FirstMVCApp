@@ -36,6 +36,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5ub3VuY2VtZW50c1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/repo/FirstMVCApp/Views/CodeSnippets/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZVNuaXBwZXRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repo/FirstMVCApp/Views/CodeSnippets/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZVNuaXBwZXRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repo/FirstMVCApp/Views/CodeSnippets/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZVNuaXBwZXRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repo/FirstMVCApp/Views/CodeSnippets/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZVNuaXBwZXRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/repo/FirstMVCApp/Views/CodeSnippets/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZVNuaXBwZXRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFR5cGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/repo/FirstMVCApp/Views/MembershipTypes/DetailsByMembershipType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFR5cGVzXERldGFpbHNCeU1lbWJlcnNoaXBUeXBlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/repo/FirstMVCApp/Views/MembershipTypes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFR5cGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -78,6 +98,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/repo/FirstMVCApp/Views/Members/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/repo/FirstMVCApp/Views/Members/DetailsWithCodeSnippets.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xEZXRhaWxzV2l0aENvZGVTbmlwcGV0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/repo/FirstMVCApp/Views/Members/Edit.cshtml]

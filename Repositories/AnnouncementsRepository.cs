@@ -42,14 +42,20 @@ namespace FirstMVCApp.Repositories
 
         public void Update(AnnouncementModel model)
         {
-            _context.Announcements.Update(model);
-            _context.SaveChanges();
+            if (GetAnnouncementById((Guid)model.IdAnnouncement)!=null) 
+            { 
+                _context.Announcements.Update(model);
+                _context.SaveChanges();            
+            }
         }
 
         public void Delete(Guid id) 
         {
-            _context.Announcements.Remove(GetAnnouncementById(id));
-            _context.SaveChanges();
+            if (GetAnnouncementById(id)!= null) 
+            { 
+                _context.Announcements.Remove(GetAnnouncementById(id));
+                _context.SaveChanges();            
+            }
         }
     }
 }

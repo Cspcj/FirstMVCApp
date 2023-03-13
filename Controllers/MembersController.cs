@@ -1,5 +1,6 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
+using FirstMVCApp.VuewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -68,6 +69,12 @@ namespace FirstMVCApp.Controllers
         {          
            _repository.DeleteMemberById(id);
             return RedirectToAction("Index");
+        }
+
+        public  IActionResult DetailsWithCodeSnippets(Guid id)
+        {
+            MemberCodeSnippetsViewModel viewModel = _repository.GetMemberCodeSnippets(id);  
+            return View("DetailsWithCodeSnippets", viewModel);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FirstMVCApp.Models;
 using FirstMVCApp.Repositories;
+using FirstMVCApp.VuewModels;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Protocol.Core.Types;
 
@@ -70,6 +71,12 @@ namespace FirstMVCApp.Controllers
         { 
             _repository.DeleteMembershipType(_repository.FindById(id));
             return RedirectToAction("Index");
-        }        
+        }      
+        
+        public IActionResult DetailsByMembershipType(Guid id)
+        {
+            MembershipTypesMembersViewModel model = _repository.GetMembersByMembership(id);
+            return View("DetailsByMembershipType", model);
+        }
     }
 }

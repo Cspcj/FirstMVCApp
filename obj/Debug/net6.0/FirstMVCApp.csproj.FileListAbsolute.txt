@@ -286,3 +286,5 @@ D:\repo\FirstMVCApp\obj\Debug\net6.0\refint\FirstMVCApp.dll
 D:\repo\FirstMVCApp\obj\Debug\net6.0\FirstMVCApp.pdb
 D:\repo\FirstMVCApp\obj\Debug\net6.0\FirstMVCApp.genruntimeconfig.cache
 D:\repo\FirstMVCApp\obj\Debug\net6.0\ref\FirstMVCApp.dll
+D:\repo\FirstMVCApp\bin\Debug\net6.0\Auth0.AspNetCore.Authentication.dll
+D:\repo\FirstMVCApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll

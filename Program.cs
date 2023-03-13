@@ -3,6 +3,7 @@ using FirstMVCApp.DataContext;
 using FirstMVCApp.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Auth0.AspNetCore.Authentication;
 
 namespace FirstMVCApp
 {
@@ -25,8 +26,14 @@ namespace FirstMVCApp
             //builder.Services.AddScoped<ProgrammingClubDataContext>();     // creaza un obiect pe durata unei sesiuni
             //builder.Services.AddSingleton<ProgrammingClubDataContext>();  // asigura o singura instanta a unui obiect pe perioada unei cereri
 
-            var app = builder.Build();
+            builder.Services.AddAuth0WebAppAuthentication(options =>
+                {
+                    options.Domain = builder.Configuration["Auth0:Domain"];
+                    options.ClientId = builder.Configuration["Auth0:ClientId"];
+                });
 
+            var app = builder.Build();
+            app.UseAuthentication();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
